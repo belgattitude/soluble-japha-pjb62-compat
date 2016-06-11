@@ -64,6 +64,87 @@ $ba = new BridgeAdapter([
 
 ### Basic Java usage
 
+With legacy mode enabled you can use the java* function directly
+ 
+```php
+<?php
+
+use Soluble\Japha\Bridge\Adapter as BridgeAdapter;
+
+$ba = new BridgeAdapter([
+    'driver' => 'Pjb62',
+    'servlet_address' => 'localhost:8083/servlet.phpjavabridge'
+]);
+
+$bigint = new Java("java.math.BigInteger", 1);
+$system = java_class('java.lang.System);
+
+java_instanceof($bigint, 'java.math.BigInteger'); // -> true
+java_inspect($bigint); 
+java_values($bigint);
+//java_invoke();
+
+``` 
+
+### API
+
+### Refactor constants
+
+|Constant                    | Example                                   |
+|----------------------------|-------------------------------------------|
+| `JAVA_HOSTS`               | `define("JAVA_HOSTS", "127.0.0.1:8787")` |
+| `JAVA_SERVLET`             | `define("JAVA_SERVLET", "/MyWebApp/servlet.phpjavabridge")` |
+| `JAVA_PREFER_VALUES`       | `define("JAVA_PREFER_VALUES", 1)` |
+| `JAVA_LOG_LEVEL`           | `define("JAVA_LOG_LEVEL", null)` |
+| `JAVA_SEND_SIZE`           | `define("JAVA_SEND_SIZE", 8192)` |
+| `JAVA_RECV_SIZE`           | `define("JAVA_RECV_SIZE", 8192)` |
+| `JAVA_DISABLE_AUTOLOAD`    | Not applicable anymore - PSR4 ;) |
+
+### Initialization
+
+| Old way                    | New way                     |
+|----------------------------|-------------------------------------------|
+|`include(... /Java.inc)`    | `$ba = new Bridge\Adapter($option);` |
+
+
+### API
+
+The following table maps old and new recommended API.
+
+|Legacy                                           | `Bridge\Adapter` ($ba)                      |
+|-------------------------------------------------|-------------------------------------------|
+|`new Java($class, $args=null)` : `Java`          | `$ba->java($class, $args=null)` : `Interfaces\JavaObject`          |
+|`java_class($class)` : `JavaClass`               | `$ba->javaClass($class)` `Interfaces\JavaClass`                |
+|`java_instanceof($object, $class)` : `boolean`   | `$ba->isInstanceOf($object, $class)` : `boolean`    |
+
+
+
+
+
+(under review, soon to be implemented)
+
+|Legacy                                      | `Bridge\Adapter` ($ba)                      |
+|--------------------------------------------|------------------------------------------|
+|`java_values($object)` : `mixed`            | `$ba->getValues($object)` : `mixed`               |
+|`java_invoke($object, $method, $args=null)` : `mixed|null` | `$ba->invokeMethod($object, $method, $args=null) : `string\null`  |
+|`java_inspect($object)` : `string`          | `$ba->debug()->inspect($object)` : `string`               |
+|`getLastException` : `Exception`            | `$ba->debug()->getLastException()` : `Exception`  |
+|`clearLastException`                        | `$ba->debug()->clearLastException()`  |
+
+
+function java_is_null($value)
+function java_is_true($value)
+function java_is_false($value)
+
+
+
+## Refactoring guidelines
+
+Keep a step by step approach... you can use both API at the same time.
+
+1. Try to change intialization sequence 
+
+
 
 ## Coding standards
 
