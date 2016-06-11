@@ -4,7 +4,7 @@
 [![HHVM Status](http://hhvm.h4cc.de/badge/soluble/japha-pjb62-compat.png?style=flat)](http://hhvm.h4cc.de/package/soluble/japha-pjb62-compat)
 [![Build Status](https://travis-ci.org/belgattitude/soluble-japha-pjb62-compat.png?branch=master)](https://travis-ci.org/belgattitude/soluble-japha-pjb62-compat)
 [![Code Coverage](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/badges/coverage.png?s=aaa552f6313a3a50145f0e87b252c84677c22aa9)](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/badges/quality-score.png?s=6f3ab91f916bf642f248e82c29857f94cb50bb33)](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/soluble/japha-pjb62-compat/v/stable.svg)](https://packagist.org/packages/soluble/japha-pjb62-compat)
 [![Total Downloads](https://poser.pugx.org/soluble/japha-pjb62-compat/downloads.png)](https://packagist.org/packages/soluble/japha-pjb62-compat)
 [![License](https://poser.pugx.org/soluble/japha-pjb62-compat/license.png)](https://packagist.org/packages/soluble/japha-pjb62-compat)
