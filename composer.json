@@ -1,0 +1,40 @@
+{
+    "name": "soluble/japha-pjb62-compat",
+    "description": "Soluble PHP Java bridge PJB62 compatibility layer",
+    "license": "MIT",
+    "keywords": [
+        "java",
+        "bridge",
+        "phpjavabridge",
+        "compatibility"
+    ],
+    "homepage": "http://soluble.io",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Sébastien Vanvelthem",
+            "homepage": "https://github.com/belgattitude"
+        }
+    ],
+    "autoload": {
+        "files": ["src/Soluble/Japha/Bridge/Driver/Pjb62/Compat/pjb_functions.php"]
+    },
+    "require": {
+        "php": "^5.4 || ^7.0",
+        "soluble/japha": "^0.11.2"
+    },
+    "require-dev" : {
+        "belgattitude/pjbserver-tools": "^1.0.2"
+    },
+    "suggest": {
+        "belgattitude/pjbserver-tools": "PHPJavabridge standalone server support (unit tests)"
+    },
+    "archive": {
+        "exclude": ["test", "doc", ".travis.yml", ".codeclimate.yml", ".coveralls.yml", ".scrutinizer.yml", ".php_cs", ".gitignore", "phpcs.xml"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }    
+}
