@@ -32,12 +32,14 @@ class SolubleTestFactories
                 //$url = parse_url($server_address, PHP_URL_HOST);
                 $port = parse_url($server_address, PHP_URL_PORT);
 
-                $options = [
+                $params = [
                     'port' => $port
                 ];
+                $config = new StandaloneServer\Config($params);
+
                 echo "Starting java bridge standalone server on port $port\n";
                 try {
-                    self::$standaloneServer = new StandaloneServer($options);
+                    self::$standaloneServer = new StandaloneServer($config);
                     self::$standaloneServer->start();
                     //$output = self::$standaloneServer->getOutput();
                 } catch (\Exception $e) {
@@ -52,7 +54,7 @@ class SolubleTestFactories
     public static function killStandaloneServer()
     {
         if (self::$standaloneServer !== null) {
-            if (self::$standaloneServer->isRunning()) {
+            if (self::$standaloneServer->isProcessRunning()) {
                 self::$standaloneServer->stop();
             }
         }

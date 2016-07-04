@@ -1,6 +1,6 @@
 # soluble-japha-pjb62-compat
 
-[![PHP Version](http://img.shields.io/badge/php-5.4+-ff69b4.svg)](https://packagist.org/packages/soluble/japha-pjb62-compat)
+[![PHP Version](http://img.shields.io/badge/php-5.5+-ff69b4.svg)](https://packagist.org/packages/soluble/japha-pjb62-compat)
 [![HHVM Status](http://hhvm.h4cc.de/badge/soluble/japha-pjb62-compat.png?style=flat)](http://hhvm.h4cc.de/package/soluble/japha-pjb62-compat)
 [![Build Status](https://travis-ci.org/belgattitude/soluble-japha-pjb62-compat.png?branch=master)](https://travis-ci.org/belgattitude/soluble-japha-pjb62-compat)
 [![Code Coverage](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/?branch=master)
@@ -26,7 +26,7 @@ don't want to refactor to the newer implementation provided by [soluble/japha](h
 
 ## Requirements
 
-- PHP 5.4+, 7.0 or HHVM >= 3.2.
+- PHP 5.5+, 7.0 or HHVM >= 3.2.
 - The [PHPJavaBridge server running](./doc/install_server.md)
 
 ## Installation

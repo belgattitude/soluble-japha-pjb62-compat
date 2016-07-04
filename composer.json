@@ -20,11 +20,11 @@
         "files": ["src/Soluble/Japha/Bridge/Driver/Pjb62/Compat/pjb_functions.php"]
     },
     "require": {
-        "php": "^5.4 || ^7.0",
-        "soluble/japha": "^0.11.2"
+        "php": "^5.5 || ^7.0",
+        "soluble/japha": "^0.11.5"
     },
     "require-dev" : {
-        "belgattitude/pjbserver-tools": "^1.0.2"
+        "belgattitude/pjbserver-tools": "^2.0.3"
     },
     "suggest": {
         "belgattitude/pjbserver-tools": "PHPJavabridge standalone server support (unit tests)"
