@@ -11,7 +11,14 @@
 
 ## Introduction
 
-Compatibility layer for legacy use of PHPJavaBridge.
+*** Work in progress ***
+
+*Historically the [PHP/Java bridge](http://php-java-bridge.sourceforge.net/pjb/) client didn't
+support namespaces.* 
+
+*Install this package if you have existing code relying on legacy php-java-bridge and 
+don't want to refactor to the newer implementation provided by [soluble/japha](https://github.com/belgattitude/soluble-japha).*  
+
 
 ## Features
 
@@ -22,15 +29,14 @@ Compatibility layer for legacy use of PHPJavaBridge.
 - PHP 5.4+, 7.0 or HHVM >= 3.2.
 - The [PHPJavaBridge server running](./doc/install_server.md)
 
-
 ## Installation
 
-1. Installation in your PHP project
+1. PHP installation *(client)*
 
-   Via [composer](http://getcomposer.org/).
+   Through [composer](http://getcomposer.org/).
 
    ```console
-   $ composer require soluble/japha soluble/japha-pjb62-compat
+   $ composer require "soluble/japha-pjb62-compat"
    ```
 
    Most modern frameworks will include Composer out of the box, but ensure the following file is included:
@@ -41,15 +47,31 @@ Compatibility layer for legacy use of PHPJavaBridge.
    require 'vendor/autoload.php';
    ```
 
-2. Installation of the phpjavabridge server
+2. PHP-Java-bridge server
 
-   Refer to the documentation provided in the [soluble-japha server install](https://github.com/belgattitude/soluble-japha/blob/master/doc/install_server.md) project.
+   Refer to the latest documentation provided in the [soluble-japha](https://github.com/belgattitude/soluble-japha/blob/master/README.md) project.
 
+   Or as quick install guide use the standalone server :
+      
+   ```console
+   $ mkdir -p /my/path/pjbserver-tools
+   $ cd /my/path/pjbserver-tools
+   $ composer create-project --no-dev --prefer-dist "belgattitude/pjbserver-tools"
+   $ ./bin/pjbserver-tools pjbserver:start -vvv ./config/pjbserver.config.php.dist
+   ```
+   The server will start on default port ***8089***. If you like to change it, create a local copy of `./config/pjbserver.config.php.dist`
+   and refer it in the above command.
+   
+   Use the commands `pjbserver:stop`, `pjbserver:restart`, `pjbserver:status` to control or query the server status.
+       
+   *For production the recommended way is to deploy the JavaBridge servlet into a J2EE compatible server (Tomcat,...).
+   Have a look to the complete [java server installation documentation](./doc/install_server.md).*
+   
 ## Examples
 
 ### Connection example
 
-Once your phpjavabridge servlet is running, you first have to initiate a connection.
+Configure your bridge adapter with the correct driver (currently only Pjb62 is supported) and the PHP-Java-bridge server address.
 
 ```php
 <?php
@@ -58,9 +80,11 @@ use Soluble\Japha\Bridge\Adapter as BridgeAdapter;
 
 $ba = new BridgeAdapter([
     'driver' => 'Pjb62',
-    'servlet_address' => 'localhost:8083/servlet.phpjavabridge'
+    'servlet_address' => 'localhost:8089/servlet.phpjavabridge'
 ]);
 ```
+
+This replace the `include('xxx/Java.inc)` used in previous versions. 
 
 ### Basic Java usage
 
@@ -143,7 +167,6 @@ function java_is_false($value)
 Keep a step by step approach... you can use both API at the same time.
 
 1. Try to change intialization sequence 
-
 
 
 ## Coding standards
