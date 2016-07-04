@@ -22,7 +22,7 @@ don't want to refactor to the newer implementation provided by [soluble/japha](h
 
 ## Features
 
-- Make soluble-japha compatible with procedural the phpjavabridge legacy api
+- Make [soluble-japha](https://github.com/belgattitude/soluble-japha) compatible with the procedural phpjavabridge legacy api
 
 ## Requirements
 
