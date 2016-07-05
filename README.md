@@ -65,7 +65,7 @@ don't want to refactor to the newer implementation provided by [soluble/japha](h
    Use the commands `pjbserver:stop`, `pjbserver:restart`, `pjbserver:status` to control or query the server status.
        
    *For production the recommended way is to deploy the JavaBridge servlet into a J2EE compatible server (Tomcat,...).
-   Have a look to the complete [java server installation documentation](./doc/install_server.md).*
+   Have a look to the complete [java server installation documentation](https://github.com/belgattitude/soluble-japha/blob/master/doc/install_server.md).*
    
 ## Examples
 
