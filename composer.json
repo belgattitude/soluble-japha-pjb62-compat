@@ -21,7 +21,7 @@
     },
     "require": {
         "php": "^5.5 || ^7.0",
-        "soluble/japha": "^0.11.5"
+        "soluble/japha": "^0.12.0"
     },
     "require-dev" : {
         "belgattitude/pjbserver-tools": "^2.0.3"
