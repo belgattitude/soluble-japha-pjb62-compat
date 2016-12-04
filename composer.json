@@ -24,6 +24,8 @@
         "soluble/japha": "^0.13.0"
     },
     "require-dev" : {
+        "phpunit/phpunit": "^4.8 || ^5.4",
+        "friendsofphp/php-cs-fixer": "^2.0.0",
         "belgattitude/pjbserver-tools": "^2.1.0"
     },
     "suggest": {

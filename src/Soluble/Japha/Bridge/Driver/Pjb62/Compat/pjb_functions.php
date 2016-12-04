@@ -1,46 +1,40 @@
 <?php
 
 /**
- * Soluble Japha / PhpJavaBridge
+ * Soluble Japha / PhpJavaBridge.
  *
  * Compatibility function to work with previous
  * version og PhpJavaBridge
  *
  * @author Vanvelthem Sébastien
  * @license   MIT
- *
  */
 use Soluble\Japha\Bridge\Driver\Pjb62;
-
 use Soluble\Japha\Bridge\Driver\Pjb62\Exception;
 
-
 /**
- * Kept for compatibilty purpose
- *
+ * Kept for compatibilty purpose.
  */
 class Java extends Soluble\Japha\Bridge\Driver\Pjb62\Java
 {
 }
 
 /**
- * Kept for compatibilty purpose
- *
+ * Kept for compatibilty purpose.
  */
 class java_class extends Soluble\Japha\Bridge\Driver\Pjb62\JavaClass
 {
 }
 
 /**
- * Kept for compatibilty purpose
- *
+ * Kept for compatibilty purpose.
  */
 class JavaClass extends java_class
 {
 }
 
 /**
- * Kept for compatibilty purpose
+ * Kept for compatibilty purpose.
  *
  * @return Client
  */
@@ -50,9 +44,10 @@ function __javaproxy_Client_getClient()
 }
 
 /**
- *
  * @deprecated
+ *
  * @param mixed $x
+ *
  * @return bool
  */
 function java_autoload_function5($x)
@@ -61,9 +56,10 @@ function java_autoload_function5($x)
 }
 
 /**
- *
  * @deprecated
+ *
  * @param mixed $x
+ *
  * @return bool
  */
 function java_autoload_function($x)
@@ -72,9 +68,10 @@ function java_autoload_function($x)
 }
 
 /**
- * Return a Java class
+ * Return a Java class.
  *
  * @param string $name Name of the java class
+ *
  * @return Pjb62\JavaClass
  */
 function java_class($name)
@@ -96,8 +93,8 @@ function java_class($name)
  * even if declared.
  *
  * @param Pjb62\JavaType $object A java object or type
- * @param string $method A method string
- * @param array $args An argument array
+ * @param string         $method A method string
+ * @param array          $args   An argument array
  */
 function java_invoke($object, $method, $args)
 {
@@ -105,8 +102,8 @@ function java_invoke($object, $method, $args)
 }
 
 /**
- *
  * @param Pjb62\Client $client
+ *
  * @return string
  */
 function java_getCompatibilityOption($client)
@@ -115,10 +112,10 @@ function java_getCompatibilityOption($client)
 }
 
 /**
- *
  * @param Pjb62\JavaType $ob
  * @param Pjb62\JavaType $clazz
- * @return boolean
+ *
+ * @return bool
  */
 function java_instanceof_internal(Pjb62\JavaType $ob, Pjb62\JavaType $clazz)
 {
@@ -126,10 +123,11 @@ function java_instanceof_internal(Pjb62\JavaType $ob, Pjb62\JavaType $clazz)
 }
 
 /**
- *
  * @param Pjb62\JavaType $ob
  * @param Pjb62\JavaType $clazz
- * @return boolean
+ *
+ * @return bool
+ *
  * @throws Exception\IllegalArgumentException
  */
 function java_instanceof($ob, $clazz)
@@ -164,6 +162,7 @@ function java_instanceof($ob, $clazz)
  * </code>
  *
  * @param Pjb62\JavaType|null $object
+ *
  * @return mixed
  */
 function java_values($object)
@@ -171,11 +170,11 @@ function java_values($object)
     if ($object === null || !$object instanceof Pjb62\JavaType) {
         return $object;
     }
+
     return Pjb62\PjbProxyClient::getInstance()->getValues($object);
 }
 
 /**
- *
  * @param Pjb62\JavaType $object
  */
 function java_values_internal($object)
@@ -184,8 +183,8 @@ function java_values_internal($object)
 }
 
 /**
- *
  * @param Pjb62\JavaType $object
+ *
  * @return string
  */
 function java_inspect_internal(Pjb62\JavaType $object)
@@ -196,9 +195,10 @@ function java_inspect_internal(Pjb62\JavaType $object)
 }
 
 /**
- *
  * @param Pjb62\JavaType $object
+ *
  * @return string
+ *
  * @throws Exception\IllegalArgumentException
  */
 function java_inspect(Pjb62\JavaType $object)
@@ -207,23 +207,17 @@ function java_inspect(Pjb62\JavaType $object)
     //return java_inspect_internal($object);
 }
 
-/**
- *
- */
 function java_last_exception_get()
 {
     return Pjb62\PjbProxyClient::getInstance()->getLastException();
 }
 
-/**
- */
 function java_last_exception_clear()
 {
     return Pjb62\PjbProxyClient::getInstance()->clearLastException();
 }
 
 /**
- *
  * @return string
  */
 function java_get_base()
@@ -267,20 +261,22 @@ function java_truncate($str)
     if (strlen($str) > 955) {
         return substr($str, 0, 475) . '[...]' . substr($str, -475);
     }
+
     return $str;
 }
 
 function java_virtual($path, $return = false)
 {
     $req = java_context()->getHttpServletRequest();
-    $req = new Java("php.java.servlet.VoidInputHttpServletRequest", $req);
+    $req = new Java('php.java.servlet.VoidInputHttpServletRequest', $req);
     $res = java_context()->getHttpServletResponse();
-    $res = new Java("php.java.servlet.RemoteHttpServletResponse", $res);
+    $res = new Java('php.java.servlet.RemoteHttpServletResponse', $res);
     $req->getRequestDispatcher($path)->include($req, $res);
     if ($return) {
         return $res->getBufferContents();
     }
     echo $res->getBufferContents();
+
     return true;
 }
 
@@ -315,10 +311,11 @@ function java_get_server_name()
 }
 
 /**
- * Test whether a java object value is null
+ * Test whether a java object value is null.
  *
  * @param Pjb62\JavaType|null $value
- * @return boolean
+ *
+ * @return bool
  */
 function java_isnull($value)
 {
@@ -326,10 +323,11 @@ function java_isnull($value)
 }
 
 /**
- * Test whether a java object value is null
- * 
+ * Test whether a java object value is null.
+ *
  * @param Pjb62\JavaType|null $value
- * @return boolean
+ *
+ * @return bool
  */
 function java_is_null($value)
 {
@@ -337,10 +335,11 @@ function java_is_null($value)
 }
 
 /**
- * Test whether a java object value is true
+ * Test whether a java object value is true.
  *
  * @param Pjb62\JavaType|null $value
- * @return boolean
+ *
+ * @return bool
  */
 function java_istrue($value)
 {
@@ -348,21 +347,23 @@ function java_istrue($value)
 }
 
 /**
- * Test whether a java object value is null
- * 
+ * Test whether a java object value is null.
+ *
  * @param Pjb62\JavaType|null $value
- * @return boolean
+ *
+ * @return bool
  */
 function java_is_true($value)
 {
-    return (boolean) (java_values($value));
+    return (bool) (java_values($value));
 }
 
 /**
- * Test whether a java object value is false
- * 
+ * Test whether a java object value is false.
+ *
  * @param Pjb62\JavaType|null $value
- * @return boolean
+ *
+ * @return bool
  */
 function java_isfalse($value)
 {
@@ -370,23 +371,23 @@ function java_isfalse($value)
 }
 
 /**
- * Test whether a java object value is false
- * 
- * Warning: originally this method contained a long standing issue: an empty string 
+ * Test whether a java object value is false.
+ *
+ * Warning: originally this method contained a long standing issue: an empty string
  * is considered as false. To not break compatibility it's remaining like this
- * 
+ *
  * @param Pjb62\JavaType|null $value
- * @return boolean
+ *
+ * @return bool
  */
 function java_is_false($value)
 {
     return !(java_values($value));
 }
 
-
 function java_call_with_continuation($kontinuation = null)
 {
-    if (java_getHeader("X_JAVABRIDGE_INCLUDE", $_SERVER) && !java_getHeader("X_JAVABRIDGE_INCLUDE_ONLY", $_SERVER)) {
+    if (java_getHeader('X_JAVABRIDGE_INCLUDE', $_SERVER) && !java_getHeader('X_JAVABRIDGE_INCLUDE_ONLY', $_SERVER)) {
         if (is_null($kontinuation)) {
             java_context()->call(java_closure());
         } elseif (is_string($kontinuation)) {
@@ -400,9 +401,11 @@ function java_call_with_continuation($kontinuation = null)
 }
 
 /**
- * Return java bridge header
+ * Return java bridge header.
+ *
  * @param $name header name
  * @param array $array
+ *
  * @return string|void
  */
 function java_getHeader($name, array $array)
@@ -413,7 +416,8 @@ function java_getHeader($name, array $array)
 function java_checkCliSapi()
 {
     $sapi = substr(php_sapi_name(), 0, 3);
-    return ((($sapi == 'cgi') && !get_cfg_var("java.session")) || ($sapi == 'cli'));
+
+    return (($sapi == 'cgi') && !get_cfg_var('java.session')) || ($sapi == 'cli');
 }
 
 /**
@@ -429,18 +433,18 @@ function java_checkCliSapi()
  * echo $foo;
  * => php
  * </code>
+ *
  * @param Pjb62\JavaType $object
  */
 function java_unwrap(Pjb62\JavaType $object)
 {
     $client = Pjb62\PjbProxyClient::getInstance()->getClient();
-    return $client->globalRef->get($client->invokeMethod(0, "unwrapClosure", [$object]));
+
+    return $client->globalRef->get($client->invokeMethod(0, 'unwrapClosure', [$object]));
 }
 
-
 /**
- * 
- * @param string $enc encoding 
+ * @param string $enc encoding
  */
 function java_set_encoding($enc)
 {
@@ -448,19 +452,19 @@ function java_set_encoding($enc)
 }
 
 /**
- * 
- * @param string $enc encoding 
+ * @param string $enc encoding
  */
 function java_set_file_encoding($enc)
 {
     $client = Pjb62\PjbProxyClient::getInstance()->getClient();
-    return $client->invokeMethod(0, "setFileEncoding", [$enc]);
+
+    return $client->invokeMethod(0, 'setFileEncoding', [$enc]);
 }
 
 /**
- *
  * @param Pjb62\JavaType $object
- * @param string $type
+ * @param string         $type
+ *
  * @return Pjb62\JavaType
  */
 function java_cast_internal($object, $type)
@@ -469,9 +473,9 @@ function java_cast_internal($object, $type)
 }
 
 /**
- * 
  * @param Pjb62\JavaType $object
- * @param string $type
+ * @param string         $type
+ *
  * @return Pjb62\JavaType
  */
 function java_cast($object, $type)
@@ -481,7 +485,8 @@ function java_cast($object, $type)
 
 function java_get_lifetime()
 {
-    $session_max_lifetime = ini_get("session.gc_maxlifetime");
+    $session_max_lifetime = ini_get('session.gc_maxlifetime');
+
     return $session_max_lifetime ? (int) $session_max_lifetime : 1440;
 }
 
@@ -501,6 +506,7 @@ function java_session_array($args)
     if (!isset($args[2])) {
         $args[2] = java_get_lifetime();
     }
+
     return $client->getSession($args);
 }
 
@@ -510,13 +516,13 @@ function java_session()
 }
 
 /**
- *
  * @return string|null
  */
 function java_server_name()
 {
     try {
         $client = Pjb62\PjbProxyClient::getInstance()->getClient();
+
         return $client->getServerName();
     } catch (Exception\ConnectException $ex) {
         return;
@@ -526,6 +532,7 @@ function java_server_name()
 function java_context()
 {
     $client = Pjb62\PjbProxyClient::getInstance()->getClient();
+
     return $client->getContext();
 }
 
@@ -536,14 +543,15 @@ function java_closure_array($args)
     }
     $client = Pjb62\PjbProxyClient::getInstance()->getClient();
     $args[0] = isset($args[0]) ? $client->globalRef->add($args[0]) : 0;
-    $client->protocol->invokeBegin(0, "makeClosure");
+    $client->protocol->invokeBegin(0, 'makeClosure');
     $n = count($args);
     $client->protocol->writeULong($args[0]);
-    for ($i = 1; $i < $n; $i++) {
+    for ($i = 1; $i < $n; ++$i) {
         $client->writeArg($args[$i]);
     }
     $client->protocol->invokeEnd();
     $val = $client->getResult();
+
     return $val;
 }
 
@@ -580,8 +588,6 @@ function java_closure()
 
 
  */
-
-
 
 // REFACTORED METHODS
 /*
