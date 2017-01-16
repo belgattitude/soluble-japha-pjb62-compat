@@ -1,7 +1,4 @@
 language: php
-sudo: required
-dist: trusty
-group: edge
 
 matrix:
   include:
@@ -11,7 +8,7 @@ matrix:
         - SEND_COVERAGE=true
     - php: 7
     - php: 7.1
-    - php: hhvm-3.9
+    - php: hhvm
                     
 before_script:
   - mkdir build
