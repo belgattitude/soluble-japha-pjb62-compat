@@ -1,7 +1,6 @@
 # soluble-japha-pjb62-compat
 
 [![PHP Version](http://img.shields.io/badge/php-5.5+-ff69b4.svg)](https://packagist.org/packages/soluble/japha-pjb62-compat)
-[![HHVM Status](https://php-eye.com/badge/soluble/japha-pjb62-compat/hhvm.svg)](https://php-eye.com/package/soluble/japha-pjb62-compat)
 [![Build Status](https://travis-ci.org/belgattitude/soluble-japha-pjb62-compat.svg?branch=master)](https://travis-ci.org/belgattitude/soluble-japha-pjb62-compat)
 [![Code Coverage](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/belgattitude/soluble-japha-pjb62-compat/?branch=master)
