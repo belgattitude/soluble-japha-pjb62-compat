@@ -1,5 +1,10 @@
 # CHANGELOG
 
+### 0.15.0 (2017-02-18)
+
+- Updated dependency to soluble/japha 1.0.0
+
+
 ### 0.14.0 (2017-01-16)
 
 - [WARNING] PHP 5.5 support dropped !!! 5.6+ 
